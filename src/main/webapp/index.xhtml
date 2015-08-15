@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+</h:head> 
+<h:body> 
+	<h:form>
+		<p:dataGrid value="#{yazilariGetir.veritabanindakiYazilar}" var="yazilarObjesi" columns="1" rows="3"
+		            paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="2,4,6" layout="grid">
+                    
+                    <f:facet name="header">
+                    	Blogdaki Yazılar
+                    </f:facet>	
+                    
+                    <p:panel header="#{yazilarObjesi.yaziBaslik}">
+                    	<p:panelGrid columns="1">
+                    		<h:outputText value="#{yazilarObjesi.yaziIcerik}"/>
+                    	</p:panelGrid>
+                    </p:panel>	
+		</p:dataGrid>
+	</h:form>
+</h:body> 
+</html>
