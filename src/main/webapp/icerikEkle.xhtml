@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>İçerik Ekleme Sayfası</title>
+</h:head> 
+<h:body> 
+	<h:form id="icerikForm">
+		<p:inputText id="baslik" placeholder="Başlık Giriniz" required="true" requiredMessage="Başlık Kısmı Boş Olamaz!"
+					 title="Başlık Giriniz" value="#{icerigiKaydet.gelenIcerik.yaziBaslik}"/>
+		<p:message for="baslik"/>		 
+		<p:editor value="#{icerigiKaydet.gelenIcerik.yaziIcerik}">
+		
+		</p:editor>
+		<p:commandButton value="Yazıyı Yayımlayın"/>
+		<p:commandButton value="Önizleyin" action="#{onizleme.onizlemeIsleminiYap}" onclick="this.form.target='_blank'" ajax="false"/>
+	</h:form>
+</h:body> 
+</html>

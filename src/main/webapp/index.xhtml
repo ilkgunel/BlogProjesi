@@ -19,7 +19,8 @@
                     
                     <p:panel header="#{yazilarObjesi.yaziBaslik}">
                     	<p:panelGrid columns="1">
-                    		<h:outputText value="#{yazilarObjesi.yaziIcerik}"/>
+                    		<h:outputText value="#{yazilarObjesi.yaziIcerik.length() gt 50 ? yazilarObjesi.yaziIcerik.substring(0,47).concat('...') : yazilarObjesi.yaziIcerik}"/>
+                    		<h:commandLink style="color:blue" value="Devamı İçin Tıklayın" />
                     	</p:panelGrid>
                     </p:panel>	
 		</p:dataGrid>

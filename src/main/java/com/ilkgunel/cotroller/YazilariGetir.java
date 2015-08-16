@@ -32,6 +32,7 @@ public class YazilariGetir {
 	public List<Yazilar> getVeritabanindakiYazilar() {
 		return veritabanindakiYazilar;
 	}
+	
 	public void setVeritabanindakiYazilar(List<Yazilar> veritabanindakiYazilar) {
 		this.veritabanindakiYazilar = veritabanindakiYazilar;
 	}
