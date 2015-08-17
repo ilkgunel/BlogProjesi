@@ -17,11 +17,10 @@ public class Yazilar implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int yaziId;
 
-	private int yazarId;
+	private String yazarAdi;
 
 	private String yaziBaslik;
 
-	@Lob
 	private String yaziIcerik;
 
 	public Yazilar() {
@@ -35,12 +34,12 @@ public class Yazilar implements Serializable {
 		this.yaziId = yaziId;
 	}
 
-	public int getYazarId() {
-		return this.yazarId;
+	public String getYazarAdi() {
+		return this.yazarAdi;
 	}
 
-	public void setYazarId(int yazarId) {
-		this.yazarId = yazarId;
+	public void setYazarAdi(String yazarAdi) {
+		this.yazarAdi = yazarAdi;
 	}
 
 	public String getYaziBaslik() {

@@ -14,36 +14,19 @@ public class Uyeler implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int uyeId;
+	private String kullaniciAdi;
 
 	private String enabled;
-
-	private String kullaniciAdi;
 
 	private String password;
 
 	private String role;
 
+	private int uyeId;
+
 	private String yazarAdi;
 
 	public Uyeler() {
-	}
-
-	/*public int getUyeId() {
-		return this.uyeId;
-	}
-
-	public void setUyeId(int uyeId) {
-		this.uyeId = uyeId;
-	}*/
-
-	public String getEnabled() {
-		return this.enabled;
-	}
-
-	public void setEnabled(String enabled) {
-		this.enabled = enabled;
 	}
 
 	public String getKullaniciAdi() {
@@ -52,6 +35,14 @@ public class Uyeler implements Serializable {
 
 	public void setKullaniciAdi(String kullaniciAdi) {
 		this.kullaniciAdi = kullaniciAdi;
+	}
+
+	public String getEnabled() {
+		return this.enabled;
+	}
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getPassword() {
@@ -68,6 +59,14 @@ public class Uyeler implements Serializable {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public int getUyeId() {
+		return this.uyeId;
+	}
+
+	public void setUyeId(int uyeId) {
+		this.uyeId = uyeId;
 	}
 
 	public String getYazarAdi() {

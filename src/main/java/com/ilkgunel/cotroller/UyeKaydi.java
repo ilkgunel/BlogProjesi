@@ -4,7 +4,6 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,7 +15,7 @@ import com.ilkgunel.entities.Uyeler;
 public class UyeKaydi {
 	Uyeler uyelerObjesi=new Uyeler();
 	String kayitSonucMesaji="";//NullPointerException İle Karşılaşmamak İçin "" Ataması Yapıyoruz
-	
+	static int sonUyeKayitIdNo=10;
 	
 	public Uyeler getUyelerObjesi() {
 		return uyelerObjesi;
@@ -59,11 +58,13 @@ public class UyeKaydi {
 	    //Veritabanına kayıt olurken bazı özellikleri kendimiz atıyoruz. İlerki zamanda bu durum değişebilir. 
 	    uyelerObjesi.setEnabled("1");
 	    uyelerObjesi.setRole("ROLE_GUEST");
+	    uyelerObjesi.setUyeId(sonUyeKayitIdNo);
 		
 		try {
 			em.getTransaction().begin();
 			em.persist(uyelerObjesi);
 			em.getTransaction().commit();
+			sonUyeKayitIdNo++;
 			em.close();
 			emf.close();
 			kayitSonucMesaji="Kaydınız Başarı İle Tamamlandı";

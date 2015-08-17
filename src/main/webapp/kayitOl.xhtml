@@ -10,19 +10,24 @@
 </h:head> 
 <h:body> 
 	<h:form>
-		<p:panelGrid columns="2">
-			<h:outputText value="Adınız Ve SoyAdınız:"/>
-			<p:inputText value="#{uyeKaydi.uyelerObjesi.yazarAdi}"/>
-			
-			<h:outputText value="Kullanıcı Adınız:" />
-			<p:inputText value="#{uyeKaydi.uyelerObjesi.kullaniciAdi}"/>
-			
-			<h:outputText value="Parolanız:" />
-			<p:password value="#{uyeKaydi.uyelerObjesi.password}"/>
-			
-			<h:outputText value="" />
-			<p:commandButton value="Kayıt Ol" action="#{uyeKaydi.uyeKaydiniYap}" ajax="false"/>
-		</p:panelGrid>
+		<center style="margin-top:50px;">
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<h:graphicImage name="jsfblog.png" library="images"/>
+				</f:facet>
+				<h:outputText value="Adınız Ve SoyAdınız:"/>
+				<p:inputText value="#{uyeKaydi.uyelerObjesi.yazarAdi}"/>
+				
+				<h:outputText value="Kullanıcı Adınız:" />
+				<p:inputText value="#{uyeKaydi.uyelerObjesi.kullaniciAdi}"/>
+				
+				<h:outputText value="Parolanız:" />
+				<p:password value="#{uyeKaydi.uyelerObjesi.password}"/>
+				
+				<h:outputText value="" />
+				<p:commandButton value="Kayıt Ol" action="#{uyeKaydi.uyeKaydiniYap}" ajax="false"/>
+			</p:panelGrid>
+		</center>
 		
 		<h:outputText value="#{uyeKaydi.kayitSonucMesaji}" />
 	</h:form>

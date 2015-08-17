@@ -11,19 +11,24 @@
 </h:head> 
 <h:body> 
 	<h:form prependId="false">
-		<p:panelGrid columns="2">
-			<h:outputText value="Kullanıcı Adınız:"/>
-			<p:inputText id="j_username" required="true" requiredMessage="Kullanıcı Adı Boş Geçilemez"/>
-			
-			<h:outputText value="Şifreniz:" />
-			<p:password id="j_password" required="true" requiredMessage="Şifre Kısmı Boş Geçilemez"/>
-			
-			<h:outputText value="" />
-			<p:commandButton value="Giriş Yapın" action="#{girisDenetlemeSinifi.login()}" ajax="false"/>
-			
-			<h:outputText value="" />
-			<p:button value="Kayıt Olun" outcome="kayitOl.xhtml"/>
-		</p:panelGrid>
+		<center style="margin-top:50px;">
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<h:graphicImage name="jsfblog.png" library="images"/>
+				</f:facet>
+				<h:outputText value="Kullanıcı Adınız:"/>
+				<p:inputText value="#{uyeBilgileri.girilenKullaniciAdi}" id="j_username" required="true" requiredMessage="Kullanıcı Adı Boş Geçilemez"/>
+				
+				<h:outputText value="Şifreniz:" />
+				<p:password id="j_password" required="true" requiredMessage="Şifre Kısmı Boş Geçilemez"/>
+				
+				<h:outputText value="" />
+				<p:commandButton value="Giriş Yapın" action="#{girisDenetlemeSinifi.login()}" actionListener="#{uyeBilgileri.bilgileriGetir}" ajax="false"/>
+				
+				<h:outputText value="" />
+				<p:button value="Kayıt Olun" outcome="kayitOl.xhtml"/>
+			</p:panelGrid>
+		</center>
 		<h:outputLabel value="#{sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}" rendered="#{!empty sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}"
                                        style="margin-left: 5px;color: red"/>
 	</h:form>
