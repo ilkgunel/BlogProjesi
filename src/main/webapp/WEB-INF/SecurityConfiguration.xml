@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                            http://www.springframework.org/schema/jdbc 
+                            http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+                            http://www.springframework.org/schema/security 
+                            http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+                            
+    <security:http auto-config="true" use-expressions="true">
+
+        <security:intercept-url pattern="/index.xhtml" access="permitAll" />
+        <security:intercept-url pattern="/icerikEkle.xhtml" access="hasAnyRole('ROLE_ADMIN', 'ROLE_GUEST')" />
+
+        <security:form-login login-processing-url="/j_spring_security_check" login-page="/girisYap.xhtml"
+                             default-target-url="/girisYap.xhtml" authentication-failure-url="/girisYap.xhtml"/>
+        <security:logout invalidate-session="true"  logout-success-url="/girisYap.xhtml" />
+        <security:remember-me data-source-ref="dataSource" token-validity-seconds="86400" />
+
+    </security:http>
+
+    <security:authentication-manager>
+
+        <security:authentication-provider>
+            <security:password-encoder hash="md5"/>
+            <security:jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query="select kullaniciAdi,password, enabled from uyeler where kullaniciAdi=?"
+                                        authorities-by-username-query="select u.kullaniciAdi, r.role from uyeler u, userroles r
+                                        where u.kullaniciAdi = r.kullaniciAdi and u.kullaniciAdi =?"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/BlogProjesi"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -6,6 +6,11 @@
   <packaging>war</packaging>
   <name>BlogProjesi</name>
   
+  <properties>
+  	<spring.version>4.0.2.RELEASE</spring.version>
+    <security.version>3.2.1.RELEASE</security.version>
+  </properties>
+  
   <dependencies>
   	<dependency>
 		<groupId>org.primefaces</groupId>
@@ -32,6 +37,35 @@
         <scope>provided</scope>
     </dependency>
 	
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 	
   </dependencies>
 </project>

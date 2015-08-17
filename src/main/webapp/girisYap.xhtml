@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Giriş Yapın</title>
+	<f:event listener="#{girisDenetlemeSinifi.authorizedUserControl()}" type="preRenderView"/>
+</h:head> 
+<h:body> 
+	<h:form prependId="false">
+		<p:panelGrid columns="2">
+			<h:outputText value="Kullanıcı Adınız:"/>
+			<p:inputText id="j_username" required="true" requiredMessage="Kullanıcı Adı Boş Geçilemez"/>
+			
+			<h:outputText value="Şifreniz:" />
+			<p:inputText id="j_password" required="true" requiredMessage="Şifre Kısmı Boş Geçilemez"/>
+			
+			<h:outputText value="" />
+			<p:commandButton value="Giriş Yap" action="#{girisDenetlemeSinifi.login()}"/>
+		</p:panelGrid>
+		<h:outputLabel value="#{sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}" rendered="#{!empty sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+                                       style="margin-left: 5px;color: red"/>
+	</h:form>
+</h:body> 
+</html>
