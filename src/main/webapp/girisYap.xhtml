@@ -16,10 +16,13 @@
 			<p:inputText id="j_username" required="true" requiredMessage="Kullanıcı Adı Boş Geçilemez"/>
 			
 			<h:outputText value="Şifreniz:" />
-			<p:inputText id="j_password" required="true" requiredMessage="Şifre Kısmı Boş Geçilemez"/>
+			<p:password id="j_password" required="true" requiredMessage="Şifre Kısmı Boş Geçilemez"/>
 			
 			<h:outputText value="" />
-			<p:commandButton value="Giriş Yap" action="#{girisDenetlemeSinifi.login()}"/>
+			<p:commandButton value="Giriş Yapın" action="#{girisDenetlemeSinifi.login()}" ajax="false"/>
+			
+			<h:outputText value="" />
+			<p:button value="Kayıt Olun" outcome="kayitOl.xhtml"/>
 		</p:panelGrid>
 		<h:outputLabel value="#{sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}" rendered="#{!empty sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}"
                                        style="margin-left: 5px;color: red"/>

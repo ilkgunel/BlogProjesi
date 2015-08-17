@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Yeni Kayıt</title>
+</h:head> 
+<h:body> 
+	<h:form>
+		<p:panelGrid columns="2">
+			<h:outputText value="Adınız Ve SoyAdınız:"/>
+			<p:inputText value="#{uyeKaydi.uyelerObjesi.yazarAdi}"/>
+			
+			<h:outputText value="Kullanıcı Adınız:" />
+			<p:inputText value="#{uyeKaydi.uyelerObjesi.kullaniciAdi}"/>
+			
+			<h:outputText value="Parolanız:" />
+			<p:password value="#{uyeKaydi.uyelerObjesi.password}"/>
+			
+			<h:outputText value="" />
+			<p:commandButton value="Kayıt Ol" action="#{uyeKaydi.uyeKaydiniYap}" ajax="false"/>
+		</p:panelGrid>
+		
+		<h:outputText value="#{uyeKaydi.kayitSonucMesaji}" />
+	</h:form>
+</h:body> 
+</html>
