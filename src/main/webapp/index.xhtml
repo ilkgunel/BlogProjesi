@@ -11,9 +11,12 @@
 </h:head> 
 <h:body> 
 	<h:form>
-		<p:dataGrid value="#{yazilariGetir.veritabanindakiYazilar}" var="yazilarObjesi" columns="1" rows="3"
+	<h:outputStylesheet name="cssDosyasi.css" library="css"/>
+	<p:panel id="panel">
+		<p:dataGrid id="ozetDataGrid" value="#{yazilariGetir.veritabanindakiYazilar}" var="yazilarObjesi" columns="1" rows="3"
 		            paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    rowsPerPageTemplate="2,4,6" layout="grid">
+                    rowsPerPageTemplate="2,4,6" layout="grid" rendered="#{!yaziyiGoruntule.gorunurluk}">
+                    
                     
                     <f:facet name="header">
                     	Blogdaki Yazılar
@@ -21,11 +24,21 @@
                     
                     <p:panel header="#{yazilarObjesi.yaziBaslik}">
                     	<p:panelGrid columns="1">
-                    		<h:outputText value="#{yazilarObjesi.yaziIcerik.length() gt 50 ? yazilarObjesi.yaziIcerik.substring(0,47).concat('...') : yazilarObjesi.yaziIcerik}"/>
-                    		<h:commandLink style="color:blue" value="Devamı İçin Tıklayın" />
+                    		<h:outputText value="#{yazilarObjesi.yaziIcerik.length() gt 50 ? yazilarObjesi.yaziIcerik.substring(0,47).concat('...') : yazilarObjesi.yaziIcerik}" escape="false"/>
+                    		<p:commandLink style="color:blue" actionListener="#{yaziyiGoruntule.yaziyiDetaylandir}" value="Devamı İçin Tıklayın" update=":#{p:component('yaziDataGrid')},:#{p:component('panel')}" >
+                    			<f:setPropertyActionListener value="#{yazilarObjesi}" target="#{yaziyiGoruntule.yazilarObjesi}" />
+                    		</p:commandLink>
                     	</p:panelGrid>
                     </p:panel>	
 		</p:dataGrid>
+		</p:panel>
+		
+		<p:panelGrid id="yaziDataGrid" columns="1">
+			<p:outputLabel style="float:right;" value="Yazar Adı:#{yaziyiGoruntule.yazilarObjesi.yazarAdi}" rendered="#{yaziyiGoruntule.gorunurluk}"/>
+			<p:panel header="#{yaziyiGoruntule.yazilarObjesi.yaziBaslik}" rendered="#{yaziyiGoruntule.gorunurluk}">  
+				<p:outputLabel value="#{yaziyiGoruntule.yazilarObjesi.yaziIcerik}" escape="false"/>
+			</p:panel>
+		</p:panelGrid>
 	</h:form>
 </h:body> 
 </html>

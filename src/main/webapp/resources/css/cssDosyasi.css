@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.ui-widget-content{
+	border:0px solid #a8a8a8;
+	background:#ffffff;
+	color:#4f4f4f;
+}
+
+.ui-panel .ui-panel-content {
+    border: 0px none;
+    background: transparent none repeat scroll 0% 0%;
+    padding: 0;
+}
+
+.ui-panel
+{
+	padding: 0;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+    border-width: 1px;
+    border-style: none;
+    border-color: inherit;
+    padding: 4px 10px;
+}

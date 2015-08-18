@@ -25,7 +25,7 @@ public class YazilariGetir {
 	public void yazilariGetir()
 	{
 		veritabanindakiYazilar=new ArrayList<Yazilar>();
-		TypedQuery<Yazilar> yazilarQuery=em.createQuery("select y from Yazilar y",Yazilar.class);
+		TypedQuery<Yazilar> yazilarQuery=em.createQuery("select y from Yazilar y order by y.yaziId desc",Yazilar.class);
 		veritabanindakiYazilar=yazilarQuery.getResultList();
 	}
 	
