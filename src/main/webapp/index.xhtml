@@ -35,6 +35,7 @@
 		
 		<p:panelGrid id="yaziDataGrid" columns="1">
 			<p:outputLabel style="float:right;" value="Yazar Adı:#{yaziyiGoruntule.yazilarObjesi.yazarAdi}" rendered="#{yaziyiGoruntule.gorunurluk}"/>
+			<p:commandLink style="float:left;" update=":#{p:component('yaziDataGrid')},:#{p:component('panel')}" value="Anasayfaya Dönün" rendered="#{yaziyiGoruntule.gorunurluk}" actionListener="#{yaziyiGoruntule.yaziyiKapat}"/>
 			<p:panel header="#{yaziyiGoruntule.yazilarObjesi.yaziBaslik}" rendered="#{yaziyiGoruntule.gorunurluk}">  
 				<p:outputLabel value="#{yaziyiGoruntule.yazilarObjesi.yaziIcerik}" escape="false"/>
 			</p:panel>

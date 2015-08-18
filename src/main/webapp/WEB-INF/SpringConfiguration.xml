@@ -17,6 +17,7 @@
 
         <security:intercept-url pattern="/index.xhtml" access="permitAll" />
         <security:intercept-url pattern="/icerikEkle.xhtml" access="hasAnyRole('ROLE_ADMIN', 'ROLE_GUEST')" />
+        <security:intercept-url pattern="/onizleme.xhtml" access="hasAnyRole('ROLE_ADMIN','ROLE_GUEST')"/>
 
         <security:form-login login-processing-url="/j_spring_security_check" login-page="/girisYap.xhtml"
                              default-target-url="/girisYap.xhtml" authentication-failure-url="/girisYap.xhtml"/>
@@ -50,4 +51,19 @@
             </list>
         </property>
     </bean>
+    
+    <!-- PostConstruct Metodunun Çalışması İçin Lazım -->
+    <context:component-scan base-package="com.ilkgunel.controller"/>
+    
+    <!-- @AutoWired Notasyonu İçin Gerekli -->
+    <context:annotation-config/>
+    
+    <!-- Managed Bean'lerimizi Başka Sınıflar İçinde Spring İle Kullanabilmek İçin Kaydediyoruz -->
+    <bean id="icerigiKaydet" class="com.ilkgunel.controller.IcerigiKaydet"></bean>
+    <bean id="onizleme"      class="com.ilkgunel.controller.Onizleme"></bean>
+    <bean id="uyeBilgileri" class="com.ilkgunel.controller.UyeBilgileri"></bean>
+    <bean id="uyeKaydi" class="com.ilkgunel.controller.UyeKaydi"></bean>
+    <bean id="yazilariGetir" class="com.ilkgunel.controller.YazilariGetir"></bean>
+    <bean id="yaziyiGoruntule" class="com.ilkgunel.controller.YaziyiGoruntule"></bean>
+     
 </beans>

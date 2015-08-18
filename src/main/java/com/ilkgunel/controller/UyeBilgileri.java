@@ -1,18 +1,19 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ilkgunel.entities.Uyeler;
 
 @ManagedBean
 @SessionScoped
 public class UyeBilgileri {
-	@ManagedProperty(value="#{icerigiKaydet}")
+	@Autowired
 	private IcerigiKaydet icerigiKaydetObjesi;
 	
 	private String girilenKullaniciAdi;

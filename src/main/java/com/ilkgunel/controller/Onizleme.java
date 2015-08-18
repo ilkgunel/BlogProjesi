@@ -1,15 +1,16 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ilkgunel.entities.Yazilar;
 
 @ManagedBean
 @SessionScoped
 public class Onizleme {
-	@ManagedProperty(value="#{icerigiKaydet}")
+	@Autowired
 	private IcerigiKaydet icerigiKaydetObjesi;
 	
 	Yazilar yazilarObjesi=new Yazilar();

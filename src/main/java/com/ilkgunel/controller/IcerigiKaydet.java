@@ -1,4 +1,4 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

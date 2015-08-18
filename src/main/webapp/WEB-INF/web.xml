@@ -21,7 +21,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>WEB-INF/SecurityConfiguration.xml</param-value>
+    <param-value>WEB-INF/SpringConfiguration.xml</param-value>
   </context-param>
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>

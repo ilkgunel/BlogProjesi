@@ -1,4 +1,4 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

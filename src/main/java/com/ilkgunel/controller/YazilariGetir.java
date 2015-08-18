@@ -1,4 +1,4 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 
 import java.util.ArrayList;
 import java.util.List;

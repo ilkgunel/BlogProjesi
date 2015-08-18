@@ -1,4 +1,4 @@
-package com.ilkgunel.cotroller;
+package com.ilkgunel.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -15,6 +15,11 @@ public class YaziyiGoruntule {
 	{
 		gorunurluk=true;
 		
+	}
+	
+	public void yaziyiKapat(javax.faces.event.ActionEvent e)
+	{
+		gorunurluk=false;
 	}
 	
 	public Yazilar getYazilarObjesi() {
